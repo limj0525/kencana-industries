@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Kencana Industries Sdn Bhd</title>
+  <link rel="icon" href="images/logo/kisb-logo.jpeg">
+  <link rel="stylesheet" href="css/style.css?v=18">
+  <link rel="stylesheet" href="css/contact-us.css?v=18">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand">
+        <img src="images/logo/kisb-logo.jpeg" alt="Kencana Industries Logo" class="logo">
+        <div class="brand-text">
+          <h1>Kencana Industries Sdn Bhd</h1>
+          <p>Engineering &amp; Industrial Supply</p>
+        </div>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+        ☰
+      </button>
+
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+
+          <li class="dropdown">
+            <a href="products/product-home.html">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="products/bonfiglioli.html">Bonfiglioli</a></li>
+              <li><a href="products/couplings.html">Couplings</a></li>
+            </ul>
+          </li>
+
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="contact-us.html" class="active">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contact-page">
+    <section class="contact-section">
+      <div class="container">
+        <h2 class="contact-title">Contact Us</h2>
+
+        <!-- Contact details -->
+        <div class="contact-info">
+          <div class="info-block">
+            <span class="info-label">Location</span>
+            <!-- TODO: replace with the company address -->
+            <p class="info-text">&lt;Company address&gt;</p>
+          </div>
+          <div class="info-block">
+            <span class="info-label">Contacts</span>
+            <p class="info-text">
+              E-mail: <a href="mailto:kencana@gmail.com">kencana@gmail.com</a><br>
+              Phone: <a href="tel:+60163230248">+60 16-323 0248</a>
+            </p>
+          </div>
+          <div class="info-social">
+            <a href="https://wa.me/60163230248" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="mailto:kencana@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+60163230248" aria-label="Phone"><i class="fas fa-phone"></i></a>
+          </div>
+        </div>
+
+        <!-- Enquiry form (submissions are emailed via Web3Forms) -->
+        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <!-- TODO: TEST key (sends to mingjun3310@gmail.com). Replace with the kencana@gmail.com key before going live -->
+          <input type="hidden" name="access_key" value="ea844f62-3580-4cee-a67f-dbf670e78ea6">
+          <input type="hidden" name="subject" value="New Enquiry Form - Kencana Industries">
+          <input type="hidden" name="from_name" value="Kencana Industries Website">
+          <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off">
+
+          <h3 class="form-title">Enquiry <strong>Form</strong></h3>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Name <span class="req">*</span></label>
+              <div class="input-icon">
+                <input type="text" id="name" name="name" autocomplete="name" required>
+                <i class="fas fa-user"></i>
+              </div>
+              <span class="field-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="company">Company Name</label>
+              <div class="input-icon">
+                <input type="text" id="company" name="company" autocomplete="organization">
+                <i class="fas fa-building"></i>
+              </div>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group full">
+              <label for="address">Address</label>
+              <div class="input-icon">
+                <textarea id="address" name="address" rows="3" autocomplete="street-address"></textarea>
+                <i class="fas fa-home"></i>
+              </div>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="state">State</label>
+              <div class="input-icon">
+                <input type="text" id="state" name="state" autocomplete="address-level1">
+                <i class="fas fa-flag"></i>
+              </div>
+              <span class="field-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="country">Country</label>
+              <div class="input-icon">
+                <input type="text" id="country" name="country" autocomplete="country-name">
+                <i class="fas fa-flag"></i>
+              </div>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Tel <span class="req">*</span></label>
+              <div class="input-icon">
+                <input type="tel" id="phone" name="phone" autocomplete="tel" pattern="^\+?[0-9\s\-]{8,15}$" required>
+                <i class="fas fa-phone"></i>
+              </div>
+              <span class="field-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail <span class="req">*</span></label>
+              <div class="input-icon">
+                <input type="email" id="email" name="email" autocomplete="email" required>
+                <i class="fas fa-envelope"></i>
+              </div>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group full">
+              <label for="business">Nature of Business</label>
+              <div class="input-icon">
+                <input type="text" id="business" name="nature_of_business">
+                <i class="fas fa-tag"></i>
+              </div>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group full">
+              <label for="enquiries">Enquiries</label>
+              <div class="input-icon">
+                <textarea id="enquiries" name="enquiries" rows="6"></textarea>
+                <i class="fas fa-comment"></i>
+              </div>
+              <span class="field-error"></span>
+            </div>
+
+            <!-- Free hCaptcha spam check provided by Web3Forms -->
+            <div class="form-group full">
+              <div class="h-captcha" data-captcha="true"></div>
+              <span class="field-error captcha-error"></span>
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <button type="submit" class="form-btn send-btn">Submit</button>
+            <button type="reset" class="form-btn reset-btn">Reset</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Pop-up message for form success / errors (filled in by main.js) -->
+    <div class="form-popup" id="formPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" hidden>
+      <div class="popup-box">
+        <div class="popup-icon"><i class="fas"></i></div>
+        <h3 id="popupTitle"></h3>
+        <p class="popup-message"></p>
+        <ul class="popup-list"></ul>
+        <button type="button" class="form-btn popup-close">OK</button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 Kencana Industries Sdn Bhd. All rights reserved.</p>
+      <p>Email: kencana@gmail.com | Phone: +60 16-323 0248</p>
+    </div>
+  </footer>
+
+  <div class="floating-contact">
+    <div class="floating-items">
+      <a href="https://wa.me/60163230248?text=Hi%2C%20I%20came%20across%20Kencana%20Industries%20and%20would%20like%20to%20enquire%20about%20your%20products."
+        class="floating-item whatsapp" target="_blank" rel="noopener noreferrer">
+        <span class="tooltip">WhatsApp Us</span>
+        <img src="images/logo/whatsapp.png" alt="WhatsApp">
+      </a>
+
+      <a href="mailto:kencana@gmail.com?subject=Website%20Enquiry" class="floating-item email">
+        <span class="tooltip">Email Us</span>
+        <span class="icon">&#9993;</span>
+      </a>
+
+      <a href="tel:+60163230248" class="floating-item phone">
+        <span class="tooltip">Call Us</span>
+        <span class="icon">&#9742;</span>
+      </a>
+    </div>
+
+    <button class="floating-main" id="floatingMain" aria-label="Open contact options">
+      <i class="fas fa-comments"></i>
+    </button>
+  </div>
+
+  <script src="https://web3forms.com/client/script.js" async defer></script>
+  <script src="js/main.js?v=18"></script>
+</body>
+
+</html>

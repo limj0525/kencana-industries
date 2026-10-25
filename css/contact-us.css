@@ -1,0 +1,371 @@
+/* ─── Contact Page ─── */
+.contact-section {
+  padding: 50px 0 70px;
+  background-color: var(--white);
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 2.4rem;
+  color: var(--dark-text);
+  margin-bottom: 50px;
+}
+
+/* ─── Contact Details ─── */
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px 60px;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 0 auto 50px;
+}
+
+.info-block {
+  display: flex;
+  gap: 20px;
+}
+
+.info-label {
+  color: var(--primary-green);
+  font-weight: bold;
+  padding-right: 20px;
+  border-right: 1px solid var(--border-color);
+  min-width: 100px;
+}
+
+.info-text {
+  color: var(--muted-text);
+  line-height: 1.7;
+}
+
+.info-text a:hover {
+  color: var(--primary-brown);
+}
+
+.info-social {
+  display: flex;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.info-social a {
+  color: var(--muted-text);
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.info-social a:hover {
+  color: var(--primary-green);
+}
+
+
+/* ─── Enquiry Form ─── */
+.contact-form {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.form-title {
+  font-size: 1.4rem;
+  font-weight: normal;
+  color: var(--dark-text);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.form-title strong {
+  color: var(--primary-brown);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 30px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: var(--dark-text);
+  margin-bottom: 6px;
+}
+
+.req {
+  color: #d93025;
+}
+
+/* Input with an icon on the right, separated by a thin divider */
+.input-icon {
+  position: relative;
+}
+
+.input-icon input,
+.input-icon textarea {
+  width: 100%;
+  font: inherit;
+  padding: 9px 52px 9px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  background-color: var(--white);
+  color: var(--dark-text);
+  transition: var(--transition);
+}
+
+.input-icon textarea {
+  display: block;
+  resize: vertical;
+}
+
+.input-icon i {
+  position: absolute;
+  top: 9px;
+  right: 0;
+  width: 40px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  color: #c4c8c2;
+  border-left: 1px solid var(--border-color);
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.input-icon input:focus,
+.input-icon textarea:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(83, 190, 72, 0.12);
+}
+
+.input-icon input:focus + i,
+.input-icon textarea:focus + i {
+  color: var(--primary-green);
+}
+
+.input-icon .invalid {
+  border-color: #d93025;
+}
+
+.field-error {
+  color: #d93025;
+  font-size: 0.8rem;
+  min-height: 1.2em;
+  margin: 3px 0 8px;
+}
+
+/* Honeypot field for bots — hidden from people */
+.botcheck {
+  display: none;
+}
+
+.form-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  margin-top: 16px;
+}
+
+.form-btn {
+  min-width: 100px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--white);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.send-btn {
+  background-color: var(--primary-brown);
+}
+
+.send-btn:hover {
+  background-color: var(--hover-brown);
+}
+
+.reset-btn {
+  background-color: #555;
+}
+
+.reset-btn:hover {
+  background-color: #333;
+}
+
+.form-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ─── Pop-up Message ─── */
+.form-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  animation: popup-fade 0.2s ease;
+}
+
+.form-popup[hidden] {
+  display: none;
+}
+
+.popup-box {
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px 28px 26px;
+  text-align: center;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  animation: popup-rise 0.25s ease;
+}
+
+.popup-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  border-radius: 50%;
+}
+
+.form-popup.success .popup-icon {
+  color: var(--primary-green);
+  background: rgba(83, 190, 72, 0.12);
+}
+
+.form-popup.error .popup-icon {
+  color: #d93025;
+  background: rgba(217, 48, 37, 0.1);
+}
+
+.popup-box h3 {
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+  color: var(--dark-text);
+}
+
+.popup-message {
+  color: var(--muted-text);
+  line-height: 1.6;
+}
+
+.popup-list {
+  margin: 14px auto 0;
+  padding: 12px 16px 12px 34px;
+  text-align: left;
+  font-size: 0.92rem;
+  color: #d93025;
+  background: #fdf3f2;
+  border-radius: 8px;
+}
+
+.popup-list:empty {
+  display: none;
+}
+
+.popup-list li {
+  padding: 2px 0;
+}
+
+.popup-close {
+  margin-top: 22px;
+  min-width: 120px;
+}
+
+.form-popup.success .popup-close {
+  background-color: var(--primary-green);
+}
+
+.form-popup.success .popup-close:hover {
+  background-color: var(--hover-green);
+}
+
+.form-popup.error .popup-close {
+  background-color: var(--primary-brown);
+}
+
+.form-popup.error .popup-close:hover {
+  background-color: var(--hover-brown);
+}
+
+@keyframes popup-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popup-rise {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 1.9rem;
+    margin-bottom: 30px;
+  }
+
+  .info-social {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-btn {
+    flex: 1;
+  }
+}
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 36px 0 50px;
+  }
+
+  .contact-title {
+    font-size: 1.7rem;
+  }
+
+  /* Stack label above the text on narrow screens */
+  .info-block {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .info-label {
+    border-right: none;
+    padding-right: 0;
+  }
+}
+
+/* hCaptcha is a fixed 303px wide; shrink it on very narrow phones */
+@media (max-width: 360px) {
+  .h-captcha {
+    transform: scale(0.88);
+    transform-origin: left top;
+  }
+}

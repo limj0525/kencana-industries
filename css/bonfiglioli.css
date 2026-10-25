@@ -1,0 +1,694 @@
+/* ─── Bonfiglioli Page ─── */
+.bf-hero {
+  padding: 40px 0 50px;
+}
+
+.bf-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: center;
+}
+
+.bf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--primary-green);
+  border-radius: 999px;
+}
+
+.bf-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.bf-points li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--dark-text);
+}
+
+.bf-points i {
+  color: var(--primary-green);
+}
+
+/* Logo card */
+.bf-logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 28px 24px 22px;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.bf-logo-card img {
+  width: 100%;
+  max-width: 260px;
+}
+
+.bf-logo-card span {
+  width: 100%;
+  padding-top: 12px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary-brown);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Sections */
+.bf-section {
+  padding: 60px 0;
+}
+
+.bf-section-alt {
+  background-color: var(--light-bg);
+}
+
+.bf-section-heading {
+  margin-bottom: 30px;
+}
+
+.bf-section-heading span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary-green);
+}
+
+.bf-section-heading h2 {
+  font-size: 1.8rem;
+  color: var(--primary-brown);
+}
+
+/* ─── Range: product type cards (act as tabs) ─── */
+.bf-type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.bf-type-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 16px 18px;
+  text-align: left;
+  background: var(--white);
+  border: 2px solid var(--border-color);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.bf-type-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--hover-green);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.07);
+}
+
+.bf-type-card.active {
+  border-color: var(--primary-green);
+  box-shadow: 0 10px 24px rgba(83, 190, 72, 0.18);
+}
+
+/* Little pointer under the selected card, towards its items */
+.bf-type-card.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -11px;
+  width: 18px;
+  height: 18px;
+  background: var(--white);
+  border-right: 2px solid var(--primary-green);
+  border-bottom: 2px solid var(--primary-green);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.bf-type-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.bf-type-img img {
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.bf-type-card:hover .bf-type-img img {
+  transform: scale(1.05);
+}
+
+.bf-type-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-brown);
+}
+
+.bf-type-count {
+  margin: 4px 0 6px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary-green);
+  background: rgba(83, 190, 72, 0.1);
+  border-radius: 999px;
+}
+
+.bf-type-items {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+}
+
+.bf-type-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  padding: 3px 10px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--primary-brown);
+  border-radius: 999px;
+}
+
+/* ─── Range: panel of items for the selected type ─── */
+.bf-type-panel {
+  padding: 30px;
+  background: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  animation: bf-panel-in 0.35s ease;
+}
+
+@keyframes bf-panel-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bf-panel-heading {
+  margin-bottom: 22px;
+}
+
+.bf-panel-heading h2 {
+  font-size: 1.5rem;
+  color: var(--primary-brown);
+}
+
+.bf-panel-heading p {
+  margin-top: 4px;
+  color: var(--muted-text);
+}
+
+.bf-item-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* A type with only one item: let it use the full width */
+.bf-item-grid.bf-item-grid--single {
+  grid-template-columns: 1fr;
+}
+
+/* ─── Item card ─── */
+.bf-item {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.bf-item:hover {
+  border-color: var(--primary-green);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+}
+
+.bf-item-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 24px 24px;
+}
+
+.bf-item-body h3 {
+  margin-bottom: 8px;
+  font-size: 1.35rem;
+  color: var(--primary-brown);
+}
+
+.bf-item-body > p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--muted-text);
+}
+
+/* Single item in a type (e.g. 300M): wide, photo left and details right */
+.bf-item--wide {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.bf-item--wide .bf-gallery {
+  justify-content: center;
+  border-bottom: none;
+  border-right: 1px solid var(--border-color);
+}
+
+.bf-item--wide .bf-item-body {
+  padding: 32px 36px;
+}
+
+.bf-item--wide .bf-item-body h3 {
+  font-size: 1.6rem;
+}
+
+.bf-series-sub {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-green);
+}
+
+/* Specs as label / value rows */
+.bf-spec-table {
+  margin: 16px 0 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bf-spec-table div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 14px;
+  font-size: 0.88rem;
+}
+
+.bf-spec-table div:nth-child(odd) {
+  background: var(--light-bg);
+}
+
+.bf-spec-table dt {
+  color: var(--muted-text);
+}
+
+.bf-spec-table dd {
+  font-weight: 700;
+  text-align: right;
+  color: var(--primary-brown);
+}
+
+/* Features & applications (always visible) */
+.bf-more {
+  margin-bottom: 20px;
+}
+
+.bf-more-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-green);
+}
+
+.bf-features {
+  margin: 10px 0 12px;
+  list-style: none;
+}
+
+.bf-features li {
+  display: flex;
+  gap: 10px;
+  padding: 4px 0;
+  font-size: 0.88rem;
+  color: var(--dark-text);
+}
+
+.bf-features i {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--primary-green);
+}
+
+.bf-app-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.bf-app-tags span {
+  padding: 3px 10px;
+  font-size: 0.76rem;
+  color: var(--dark-text);
+  background: #f0f0ed;
+  border-radius: 999px;
+}
+
+.bf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto; /* keeps buttons aligned at the bottom of each card */
+}
+
+/* Compact product buttons: one line, equal height */
+.bf-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  white-space: nowrap;
+  border: 2px solid var(--primary-brown); /* same border on both buttons */
+  border-radius: 6px;
+}
+
+.bf-official-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted-text);
+}
+
+.bf-official-link:hover {
+  color: var(--primary-green);
+}
+
+/* Type with no item details yet */
+.bf-coming-soon {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.bf-coming-soon > i {
+  margin-bottom: 12px;
+  font-size: 2.4rem;
+  color: var(--primary-green);
+}
+
+.bf-coming-soon h3 {
+  margin-bottom: 6px;
+  color: var(--primary-brown);
+}
+
+.bf-coming-soon p {
+  margin-bottom: 20px;
+  color: var(--muted-text);
+}
+
+.bf-coming-soon .bf-actions {
+  justify-content: center;
+}
+
+/* ─── Photo gallery: large photo + clickable thumbnails ─── */
+.bf-gallery {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.bf-gallery-main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  cursor: grab;
+  touch-action: pan-y; /* horizontal swipes go to the gallery, vertical still scrolls */
+  user-select: none;
+}
+
+.bf-gallery-main.dragging {
+  cursor: grabbing;
+}
+
+/* Photo always fits the fixed 4:3 box, whatever its own shape */
+.bf-gallery-main img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.25s ease, transform 0.3s ease;
+}
+
+/* No photos yet (placeholder shown): nothing to drag or zoom */
+.bf-gallery--empty .bf-gallery-main {
+  cursor: default;
+}
+
+.bf-gallery--empty .bf-zoom-hint {
+  display: none;
+}
+
+/* Follow the pointer instantly while dragging */
+.bf-gallery-main.dragging img {
+  transition: none;
+}
+
+.bf-gallery-main img.fading {
+  opacity: 0;
+}
+
+/* Magnifier hint: tap the photo to zoom */
+.bf-zoom-hint {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  font-size: 0.9rem;
+  color: var(--white);
+  background: rgba(31, 41, 51, 0.55);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.bf-gallery-main:hover .bf-zoom-hint {
+  background: var(--primary-green);
+  transform: scale(1.08);
+}
+
+/* Zoomed product photo in the image modal: large, on a white card */
+.image-modal.zoom-photo .modal-content img {
+  width: min(90vw, 860px);
+  max-height: 85vh;
+  background: var(--white);
+}
+
+.bf-gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* main photo + 6 angles */
+  gap: 6px;
+  width: 100%;
+}
+
+/* display: grid above would otherwise override the hidden attribute */
+.bf-gallery-thumbs[hidden] {
+  display: none;
+}
+
+.bf-gallery-thumbs button {
+  padding: 3px;
+  background: var(--white);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.bf-gallery-thumbs button:hover {
+  transform: translateY(-2px);
+  border-color: var(--hover-green);
+}
+
+.bf-gallery-thumbs button.active {
+  border-color: var(--primary-green);
+}
+
+.bf-gallery-thumbs img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.bf-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--primary-brown);
+  border-radius: 999px;
+}
+
+/* ─── Call to action ─── */
+.bf-cta {
+  padding: 60px 0;
+  text-align: center;
+  color: var(--white);
+  background: linear-gradient(135deg, #2d7d22, var(--primary-green));
+}
+
+.bf-cta h2 {
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.bf-cta p {
+  max-width: 620px;
+  margin: 0 auto 26px;
+  opacity: 0.9;
+}
+
+/* The footer's top margin leaves a gap under the green CTA band */
+.bonfiglioli-page + .site-footer {
+  margin-top: 0;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1100px) {
+  .bf-item-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .bf-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bf-logo-card {
+    max-width: 340px;
+  }
+
+  .bf-type-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* No pointer when cards wrap to two rows */
+  .bf-type-card.active::after {
+    display: none;
+  }
+
+  .bf-item--wide {
+    grid-template-columns: 1fr;
+  }
+
+  .bf-item--wide .bf-gallery {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+@media (max-width: 768px) {
+  .bf-item-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bf-type-panel {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bf-section,
+  .bf-cta {
+    padding: 44px 0;
+  }
+
+  .bf-section-heading h2,
+  .bf-cta h2 {
+    font-size: 1.45rem;
+  }
+
+  .bf-type-grid {
+    gap: 10px;
+  }
+
+  .bf-type-card {
+    padding: 10px 10px 12px;
+  }
+
+  .bf-type-name {
+    font-size: 0.9rem;
+  }
+
+  .bf-type-items {
+    font-size: 0.75rem;
+  }
+
+  .bf-type-panel {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .bf-item-body,
+  .bf-item--wide .bf-item-body {
+    padding: 18px;
+  }
+}
