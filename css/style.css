@@ -659,6 +659,15 @@ button {
   flex-direction: column;
   align-items: flex-end;
   overflow: visible;
+  /* The hidden menu still takes up space; don't let that empty area catch
+     the mouse (it sits over the slider arrow). Only the button and the
+     visible menu respond. */
+  pointer-events: none;
+}
+
+.floating-items,
+.floating-main {
+  pointer-events: auto;
 }
 
 .floating-items {

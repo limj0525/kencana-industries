@@ -64,6 +64,24 @@
   gap: 28px;
 }
 
+/* Heading between groups of cards (e.g. Couplings / Coupling Elements) */
+.product-group-heading {
+  margin: 48px 0 24px;
+  padding-top: 32px;
+  border-top: 1px solid #d9ddd7;
+}
+
+.product-group-heading h2 {
+  font-size: 1.6rem;
+  color: #995d2b;
+  margin-bottom: 6px;
+}
+
+.product-group-heading p {
+  color: #5b6570;
+  font-size: 0.95rem;
+}
+
 /* Product Card */
 .product-card {
   background: #ffffff;
@@ -107,7 +125,7 @@
   margin-bottom: 12px;
 }
 
-/* "Authorized Reseller" ribbon (Bonfiglioli card) */
+/* "Authorized Dealer" ribbon (Bonfiglioli card) */
 .featured-ribbon {
   display: inline-block;
   margin-bottom: 14px;
@@ -247,6 +265,41 @@ a.sub-item:hover {
 
 .product-card:hover .product-img {
     transform: scale(1.02);
+}
+
+/* Two photos side by side (conveyor belt) */
+.product-image-split {
+    gap: 10px;
+}
+
+.product-image-split .product-img {
+    width: calc(50% - 5px);
+}
+
+/* Captioned photos (oil seal types) */
+.product-image-split .product-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(50% - 5px);
+    height: 100%;
+    margin: 0;
+    padding: 8px 8px 6px;
+    border: 1px solid #ecece8;
+    border-radius: 8px;
+}
+
+.product-image-split .product-photo .product-img {
+    width: 100%;
+    min-height: 0;
+    flex: 1;
+}
+
+.product-photo figcaption {
+    margin-top: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #5b6570;
 }
 
 /* Placeholder for missing images */
@@ -421,19 +474,12 @@ a.sub-item:hover {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-    "cpl  cpl  vb   vb"
-    "cpl  cpl  ring ring"
-    "cpl  cpl  oil  oil"
-    "spr  spr  belt belt";
+    "cpl  cpl  parts parts";
   gap: 24px;
 }
 
 .bento-couplings { grid-area: cpl; }
-.bento-oilseal   { grid-area: oil; }
-.bento-oring     { grid-area: ring; }
-.bento-vbelt     { grid-area: vb; }
-.bento-sprocket  { grid-area: spr; }
-.bento-belt      { grid-area: belt; }
+.bento-parts     { grid-area: parts; }
 
 .bento-card {
   display: flex;
@@ -523,35 +569,67 @@ a.sub-item:hover {
   border-radius: 999px;
 }
 
-/* Horizontal cards: photo left, text right */
-.bento-row {
-  flex-direction: row;
+/* Industrial Parts card: one tile per part category */
+.bento-parts .bento-body h3 {
+  font-size: 1.6rem;
 }
 
-.bento-row .bento-img {
-  flex: 0 0 42%;
-  height: auto;
-  min-height: 190px;
-  border-bottom: none;
-  border-right: 1px solid #ecece8;
+.bento-parts .bento-body:first-child {
+  padding-bottom: 16px;
 }
 
-.bento-row .bento-img img {
-  max-height: 170px;
-}
-
-.bento-row .bento-body {
+.parts-tiles {
   flex: 1;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 0 26px;
 }
 
-/* Two photos side by side (conveyor belt) */
-.bento-img-split {
-  gap: 10px;
+.parts-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 14px 12px;
+  text-align: center;
+  border: 1px solid #ecece8;
+  border-radius: 12px;
+  transition: border-color 0.3s ease;
 }
 
-.bento-img-split img {
-  width: calc(50% - 5px);
+.parts-tile:hover {
+  border-color: #53be48;
+}
+
+/* An odd tile out (Sprocket Gear) spans the full row */
+.parts-tile:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.parts-tile img {
+  height: 110px;
+  margin-bottom: 10px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.parts-tile:hover img {
+  transform: scale(1.05);
+}
+
+.parts-tile h4 {
+  font-size: 0.95rem;
+  color: #1f2933;
+}
+
+.parts-tile span {
+  font-size: 0.78rem;
+  color: #5b6570;
+}
+
+.bento-body-footer {
+  padding-top: 6px;
 }
 
 /* ─── Products page: closing call to action ─── */
@@ -598,22 +676,17 @@ a.sub-item:hover {
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-      "cpl  cpl"
-      "vb   ring"
-      "oil  spr"
-      "belt belt";
+      "cpl   cpl"
+      "parts parts";
   }
 
-  .bento-row {
-    flex-direction: column;
+  /* Full-width card: show all five part tiles in one row */
+  .parts-tiles {
+    grid-template-columns: repeat(5, 1fr);
   }
 
-  .bento-row .bento-img {
-    flex: none;
-    height: 200px;
-    min-height: 0;
-    border-right: none;
-    border-bottom: 1px solid #ecece8;
+  .parts-tile:last-child:nth-child(odd) {
+    grid-column: auto;
   }
 
   .bento-couplings .bento-img {
@@ -645,11 +718,23 @@ a.sub-item:hover {
 
   .bento-grid {
     grid-template-columns: 1fr;
-    grid-template-areas: "cpl" "vb" "ring" "oil" "spr" "belt";
+    grid-template-areas: "cpl" "parts";
     gap: 18px;
   }
 
-  .bento-row .bento-img,
+  .parts-tiles {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
+  }
+
+  .parts-tile img {
+    height: 90px;
+  }
+
+  .parts-tile:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
   .bento-couplings .bento-img {
     height: 180px;
     min-height: 0;
